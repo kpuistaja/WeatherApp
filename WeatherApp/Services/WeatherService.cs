@@ -1,15 +1,6 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using WeatherApp.Models;
 
@@ -17,7 +8,7 @@ namespace WeatherApp.Services
 {
     public class WeatherService
     {
-        const string ApiKey = "a519d2565f58343b5f157d056e658aca";
+        const string ApiKey = "972d2ee9c57026a9afc7d7b7c0ffd069";
 
         public async Task<WeatherInfo> GetCityWeather(string city)
         {
@@ -48,6 +39,22 @@ namespace WeatherApp.Services
                     return byteArray;
                 }
                 return null;
+            }
+        }
+
+        public async Task<WeatherForecast> GetCityWeatherForecast(string city)
+        {
+            var client = new HttpClient();
+
+            try
+            {
+                var response = await client.GetStringAsync($"https://api.openweathermap.org/data/2.5/forecast?q={city}&&units=metric&appid={ApiKey}");
+                var data = JsonConvert.DeserializeObject<WeatherForecast>(response);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

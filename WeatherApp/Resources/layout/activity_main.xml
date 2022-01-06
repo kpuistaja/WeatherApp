@@ -4,32 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+	android:layout_marginTop="20dp">
 	<EditText
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:minWidth="25px"
 		android:minHeight="25px"
+		android:textAlignment="center"
 		android:id="@+id/cityEditText"
 		android:hint="City" />
 	<Button
 		android:text="Search"
-		android:layout_width="match_parent"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_gravity="center"
+		android:backgroundTint="@android:color/holo_blue_dark"
 		android:id="@+id/searchButton" />
 	<ImageView
 		android:src="@android:drawable/ic_menu_gallery"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/weatherImageView" />
+		android:id="@+id/weatherImageView"
+		android:layout_marginTop="20dp"/>
 	<TextView
 		android:text=""
+		android:textSize="100px"
+		android:textStyle="bold"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:textAlignment="center"
 		android:id="@+id/temperatureTextView" />
 	<TextView
 		android:text=""
+		android:textSize="50px"
+		android:textStyle="bold"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
+		android:textAlignment="center"
 		android:id="@+id/windTextView" />
+	<TextView
+		android:text="5-DAY FORECAST"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:layout_marginLeft="19dp"
+		android:layout_marginBottom="10dp"
+		android:id="@+id/fiveDayTextView" />
+
+	<ListView
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/forecastListView" />
+
 </LinearLayout>
